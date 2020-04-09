@@ -8,22 +8,23 @@ import {
 import { RefreshCw } from 'react-feather';
 
 import schema from './SwapFieldSchema';
+import useForm from '../../../packages/uniforms/src/useForm';
 
-const SwapField = (
-  { children, fieldA, fieldB },
-  { uniforms: { model, onChange } }
-) => (
-  <span style={{ display: 'flex', justifyContent: 'center' }}>
-    {cloneElement(Children.only(children), {
-      onClick() {
-        const valueA = get(model, fieldA);
-        const valueB = get(model, fieldB);
-        onChange(fieldA, valueB);
-        onChange(fieldB, valueA);
-      }
-    })}
-  </span>
-);
+const SwapField = ({ children, fieldA, fieldB }, ctx) => {
+  const x = useForm();
+  return (
+    <span style={{ display: 'flex', justifyContent: 'center' }}>
+      {cloneElement(Children.only(children), {
+        onClick() {
+          const valueA = get(x.model, fieldA);
+          // const valueB = get(model, fieldB);
+          // onChange(fieldA, valueB);
+          // onChange(fieldB, valueA);
+        }
+      })}
+    </span>
+  );
+};
 
 export default function ExampleOfSwapField() {
   return (
