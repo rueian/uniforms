@@ -4,17 +4,11 @@ import { connectField } from 'uniforms';
 
 import schema from './CompositeFieldSchema';
 
-const SubmitField = (
-  props,
-  {
-    uniforms: {
-      error,
-      state: { disabled, submitting, validating }
-    }
-  }
-) => (
+const SubmitField = props => (
   <input
-    disabled={!!(error || disabled || submitting || validating)}
+    disabled={
+      !!(props.error || props.disabled || props.submitting || props.validating)
+    }
     type="submit"
   />
 );
