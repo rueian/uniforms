@@ -14,7 +14,7 @@ export type TextFieldProps = Override<
 >;
 function Text(props: TextFieldProps) {
   return wrapField(
-    props,
+    props as any,
     <Input
       disabled={props.disabled}
       id={props.id}

@@ -23,6 +23,7 @@ function SubmitField({
     <Button
       disabled={disabled === undefined ? !!(error || state.disabled) : disabled}
       htmlType="submit"
+      // @ts-ignore
       ref={inputRef}
       type="primary"
       {...props}

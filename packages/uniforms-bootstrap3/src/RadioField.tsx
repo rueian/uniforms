@@ -24,7 +24,7 @@ export type RadioFieldProps = Override<
 
 function Radio(props: RadioFieldProps) {
   return wrapField(
-    props,
+    props as any,
     props.allowedValues.map(item => (
       <div
         key={item}

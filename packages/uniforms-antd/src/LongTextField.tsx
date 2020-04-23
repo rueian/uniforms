@@ -22,7 +22,7 @@ export type LongTextFieldProps = Override<
 
 function LongText(props: LongTextFieldProps) {
   return wrapField(
-    props,
+    props as any,
     // @ts-ignore
     <TextArea
       disabled={props.disabled}

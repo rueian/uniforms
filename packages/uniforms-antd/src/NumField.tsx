@@ -17,7 +17,7 @@ export type NumFieldProps = Override<
 
 function Num(props: NumFieldProps) {
   return wrapField(
-    props,
+    props as any,
     <InputNumber
       disabled={props.disabled}
       id={props.id}

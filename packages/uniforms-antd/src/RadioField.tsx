@@ -16,7 +16,7 @@ export type RadioFieldProps = Override<
 
 function Radio(props: RadioFieldProps) {
   return wrapField(
-    props,
+    props as any,
     <RadioAntD.Group
       disabled={props.disabled}
       name={props.name}

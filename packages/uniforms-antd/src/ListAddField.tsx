@@ -3,6 +3,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import omit from 'lodash/omit';
 import React from 'react';
 import { filterDOMProps, joinName, Override, useField } from 'uniforms';
+import { PlusSquareOutlined } from '@ant-design/icons';
 
 export type ListAddFieldProps<T> = Override<
   ButtonProps,
@@ -41,7 +42,7 @@ function ListAdd<T>(rawProps: ListAddFieldProps<T>) {
 }
 
 ListAdd.defaultProps = {
-  icon: 'plus-square-o',
+  icon: <PlusSquareOutlined />,
   size: 'small',
   style: { width: '100%' },
   type: 'dashed',

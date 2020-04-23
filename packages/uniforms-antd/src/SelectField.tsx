@@ -32,7 +32,7 @@ type CheckboxesProps = Override<
 >;
 
 type SelectProps = Override<
-  SelectAntDProps,
+  SelectAntDProps<any>,
   CommonProps<string | string[]> & {
     checkboxes?: false;
     inputRef?: Ref<SelectAntD<any>>;
@@ -44,7 +44,7 @@ export type SelectFieldProps = CheckboxesProps | SelectProps;
 function Select(props: SelectFieldProps) {
   const Group = props.fieldType === Array ? CheckboxGroup : RadioGroup;
   return wrapField(
-    props,
+    props as any,
     props.checkboxes ? (
       <Group
         disabled={props.disabled}
