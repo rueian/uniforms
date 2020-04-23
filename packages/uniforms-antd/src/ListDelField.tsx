@@ -24,13 +24,13 @@ function ListDel<T>(rawProps: ListDelFieldProps<T>) {
 
   const fieldIndex = +nameParts[nameParts.length - 1];
   const limitNotReached =
-    !props.disabled && !(parent.minCount! >= parent.value!.length);
+    !props.disabled && !(parent.minCount! >= (parent.value || []).length);
   return (
     <Button
       disabled={!limitNotReached || rawProps.disabled}
       onClick={() => {
         if (limitNotReached) {
-          const value = parent.value!.slice();
+          const value = (parent.value || []).slice();
           value.splice(fieldIndex, 1);
           parent.onChange(value);
         }

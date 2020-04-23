@@ -58,7 +58,7 @@ function List<T>({
       {!!(error && showInlineError) && <div>{errorMessage}</div>}
 
       {children
-        ? value.map((item: any, index: number) =>
+        ? (value || []).map((item: any, index: number) =>
             Children.map(children as JSX.Element, child =>
               cloneElement(child, {
                 key: index,
@@ -70,7 +70,7 @@ function List<T>({
               }),
             ),
           )
-        : value.map((item: any, index: number) => (
+        : (value || []).map((item: any, index: number) => (
             <ListItemField
               key={index}
               label={undefined}

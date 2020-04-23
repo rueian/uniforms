@@ -25,13 +25,15 @@ function ListAdd<T>(rawProps: ListAddFieldProps<T>) {
   if (rawProps.parent) Object.assign(parent, rawProps.parent);
 
   const limitNotReached =
-    !props.disabled && !(parent.maxCount! <= parent.value!.length);
+    !props.disabled && !(parent.maxCount! <= (parent.value || []).length);
   return (
     <Button
       disabled={!limitNotReached || rawProps.disabled}
       onClick={() => {
         if (limitNotReached)
-          parent.onChange(parent.value!.concat([cloneDeep(props.value!)]));
+          parent.onChange(
+            (parent.value || []).concat([cloneDeep(props.value!)]),
+          );
       }}
       {...filterDOMProps(omit(props, ['value']))}
     />
